@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "UIMain",
+            "request": "launch",
+            "mainClass": "br.UIMain",
+            "projectName": "jogo-sodoku_63332529"
+        },
+        {
+            "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "br.Main",
