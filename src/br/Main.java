@@ -32,7 +32,7 @@ public class Main {
 
         var option = -1;
         while (true) {
-            System.out.println("Selecione uma das opções a seguir: ");
+            System.out.println("\nSelecione uma das opções a seguir: ");
             System.out.println("1 - Iniciar um novo jogo");
             System.out.println("2 - Colocar um novo número");
             System.out.println("3 - Remover um número");
@@ -71,7 +71,7 @@ public class Main {
         for (int i = 0; i< BOARD_LIMIT; i++) {
             spaces.add(new ArrayList<>());
             for (int j = 0; j < BOARD_LIMIT; j++) {
-                var positionsConfig = positions.get("%s, %s".formatted(i, j));
+                var positionsConfig = positions.get("%s,%s".formatted(i, j));
                 var expected = Integer.parseInt(positionsConfig.split(",")[0]);
                 var fixed = Boolean.parseBoolean(positionsConfig.split(",")[1]);
                 var currentSpace = new Space(expected, fixed);
@@ -93,7 +93,7 @@ public class Main {
         var col = runUntiGetValidNumber(0, 8);
         System.out.println("Informe a linha em que o número será inserido");
         var row = runUntiGetValidNumber(0, 8);
-        System.out.printf("Informe o número que vaoi entrar na posição [%s, %s]\n", col, row);
+        System.out.printf("Informe o número que vai entrar na posição [%s, %s]\n", col, row);
         var value = runUntiGetValidNumber(1, 9);
         if(!board.changeValue(col, row, value)){
             System.out.printf("A posição [%s, %s] tem um valor fixo\n", col, row);
@@ -130,7 +130,7 @@ public class Main {
                 args[argsPos ++] = " " + ((isNull(col.get(i).getActual())) ? " " : col.get(i).getActual());
             }
          }
-         System.out.println("I jogo se encontra da seguinte forma: ");
+         System.out.println("O jogo se encontra da seguinte forma: ");
          System.out.printf((BOARD_TEMPLATE) + "\n", args);
     
     }
@@ -141,11 +141,11 @@ public class Main {
             return;
         }
 
-        System.out.printf("O jogo atualmente se encontra no status %s\n", board.getStatus().getLabel());
+        System.out.printf("\nO jogo atualmente se encontra no status %s\n", board.getStatus().getLabel());
         if(board.hasErrors()) {
-            System.out.println("O jogo contém erros");
+            System.out.println("\nO jogo contém erros");
         } else {
-            System.out.println("O jogo não contém erros");
+            System.out.println("\nO jogo não contém erros");
         }
     }
 
@@ -155,7 +155,7 @@ public class Main {
             return;
         }
 
-        System.out.println("Tem certeza que deseja limpar seu jogo e perder todo seu progresso?");
+        System.out.println("\nTem certeza que deseja limpar seu jogo e perder todo seu progresso?");
         var confirm = scanner.next();
         while (!confirm.equalsIgnoreCase("sim") && !confirm.equalsIgnoreCase("não")) {
             System.out.println("Informe 'sim' ou 'não'");
