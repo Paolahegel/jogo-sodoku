@@ -1,18 +1,23 @@
-## Getting Started
+# 🧩 JOGO SODUKU  
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+<h4 align="center"> 
+    :construction:  Projeto em construção  :construction:
+</h4
 
-## Folder Structure
+A criação deste projeto visa colocar em prática habilidades como análise de requisitos, POO, Collection API e Stream API. Desenvolvido durante a participação do Bootcamp Java Cloud na [Digital Innovation One](https://www.dio.me/).
 
-The workspace contains two folders by default, where:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Funcionalidades
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Conceitos Aplicados
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Tecnologias Utilizadas
 
-## Dependency Management
+## Estrutura do Projeto
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Como Jogar
+
+## Exemplo de Uso
+
+## Contribuições
+Contribuições são bem-vindas! Se você deseja adicionar novos recursos ou corrigir bugs, sinta-se à vontade para abrir uma issue ou pull request.
