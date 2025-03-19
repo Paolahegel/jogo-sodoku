@@ -1,11 +1,11 @@
-package model;
+package br.model;
 
 import java.util.Collection;
 import java.util.List;
 
-import static model.GameStatusEnum.COMPLETE;
-import static model.GameStatusEnum.INCOMPLETE;
-import static model.GameStatusEnum.NOT_STARTED;
+import static br.model.GameStatusEnum.COMPLETE;
+import static br.model.GameStatusEnum.INCOMPLETE;
+import static br.model.GameStatusEnum.NOT_STARTED;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 

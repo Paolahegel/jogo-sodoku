@@ -1,4 +1,4 @@
-package util;
+package br.util;
 
 public final class BoardTemplate {
 

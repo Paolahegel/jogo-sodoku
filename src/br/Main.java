@@ -1,3 +1,4 @@
+package br;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
@@ -6,10 +7,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Stream;
-import static java.util.stream.Collectors.toMap;
 
-import model.Board;
-import model.Space;
+import br.model.Board;
+import br.model.Space;
+import static br.util.BoardTemplate.BOARD_TEMPLATE;
+
+import static java.util.stream.Collectors.toMap;
 
 public class Main {
 
@@ -45,8 +48,8 @@ public class Main {
                 case 1 -> startGame(positions);
                 case 2 -> inputNumber();
                 case 3 -> removeNumber();
-                case 4 -> showcurrenteGame();
-                case 5 -> showCurrenteStatus();
+                case 4 -> showCurrentGame();
+                case 5 -> showGameStatus();
                 case 6 -> cleanGame();
                 case 7 -> finishGame();
                 case 8 -> System.exit(0);
@@ -108,17 +111,78 @@ public class Main {
         var col = runUntiGetValidNumber(0, 8);
         System.out.println("Informe a linha em que o número será inserido");
         var row = runUntiGetValidNumber(0, 8);
-        System.out.printf("Informe o número que vai entrar na posição [%s, %s]\n", col, row);
         if (!board.clearValue(col, row)){
             System.out.printf("A posição [%s, %s] tem um valor fixo\n", col, row);
         }
 
     }
 
-    public static void showcurrenteGame(){}
-    public static void showCurrenteStatus(){}
-    public static void cleanGame(){}
-    public static void finishGame(){}
+    public static void showCurrentGame(){
+        if (isNull(board)) {
+            System.out.println("O jogo ainda não foi iniciado");
+            return;
+        }
+
+         var args = new Object[81];
+         var argsPos = 0;
+         for (int i = 0; i< BOARD_LIMIT; i++) {
+            for(var col: board.getSpaces()){
+                args[argsPos ++] = " " + ((isNull(col.get(i).getActual())) ? " " : col.get(i).getActual());
+            }
+         }
+         System.out.println("I jogo se encontra da seguinte forma: ");
+         System.out.printf((BOARD_TEMPLATE) + "\n", args);
+    
+    }
+
+    public static void showGameStatus(){
+        if (isNull(board)) {
+            System.out.println("O jogo ainda não foi iniciado");
+            return;
+        }
+
+        System.out.printf("O jogo atualmente se encontra no status %s\n", board.getStatus().getLabel());
+        if(board.hasErrors()) {
+            System.out.println("O jogo contém erros");
+        } else {
+            System.out.println("O jogo não contém erros");
+        }
+    }
+
+    public static void cleanGame(){
+        if (isNull(board)) {
+            System.out.println("O jogo ainda não foi iniciado");
+            return;
+        }
+
+        System.out.println("Tem certeza que deseja limpar seu jogo e perder todo seu progresso?");
+        var confirm = scanner.next();
+        while (!confirm.equalsIgnoreCase("sim") && !confirm.equalsIgnoreCase("não")) {
+            System.out.println("Informe 'sim' ou 'não'");
+            confirm = scanner.next();
+        }
+        
+        if (confirm.equalsIgnoreCase("sim")){
+            board.reset();
+        }
+    }
+
+    public static void finishGame(){
+        if (isNull(board)) {
+            System.out.println("O jogo ainda não foi iniciado");
+            return;
+        }
+
+        if (board.gameIsFinished()) {
+            System.out.println("Parabéns! Você concluiu o jogo.");
+            showCurrentGame();
+            board = null;
+        } else if (board.hasErrors()) {
+            System.out.println("Seu jogo contém erros, verifique e ajuste-o");
+        } else {
+            System.out.println("Você ainda precisa preencher algum espaço");
+        }
+    }
 
     public static int runUntiGetValidNumber(final int min, final int max) {
         var current = scanner.nextInt();
@@ -128,12 +192,5 @@ public class Main {
         }
         return current;
     }
-
-
-
-
-
-
-
 
 }
