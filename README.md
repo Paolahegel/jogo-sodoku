@@ -21,12 +21,8 @@ Este projeto consiste em um **jogo de Sudoku interativo** via terminal, com o ob
 - 8: Sair.
 
 ## 🛠️ Tecnologias Utilizadas
-🔹 Linguagem: Java 21   
-🔹 IDE: VSCode  
-🔹 Controle de Versão: Git & GitHub
-
-## Estrutura do Projeto
-
+- Linguagem: Java 21   
+- Controle de Versão: Git & GitHub
 
 ## 🎮 Como Jogar
 1. Clone o repositório:
