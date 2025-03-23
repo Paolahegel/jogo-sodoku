@@ -24,6 +24,22 @@ Este projeto consiste em um **jogo de Sudoku interativo** via terminal, com o ob
 - Linguagem: Java 21   
 - Controle de Versão: Git & GitHub
 
+## 📂 Estrutura do Projeto
+
+```
+sudoku/ 
+├── src/
+│ │ │ ├── br/
+│ │ │ │ ├── model/
+│ │ │ │ │ ├── Board.java
+│ │ │ │ │ ├── GameStatusEnum.java
+│ │ │ │ │ ├── Space.java
+│ │ │ │ ├── util/
+│ │ │ │ │ ├── BoardTemplate.java
+│ │ │ │ ├── main.java 
+├── README.md
+```
+
 ## 🎮 Como Jogar
 1. Clone o repositório:
    ```shell
